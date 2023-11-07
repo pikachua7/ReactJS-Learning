@@ -1,7 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const jsxHeading = <h1 id="heading">Hello From JSX!</h1>;
+const heading2 = <h1 id="heading">Hello From JSX!</h1>;
+
+const jsxHeading = (
+  <h1 id="heading">
+    Hello From JSX!
+    {heading2}
+  </h1>
+);
 
 const TitleComponent = () => {
   return <h1>Hello From Title!</h1>;
