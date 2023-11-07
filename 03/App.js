@@ -13,6 +13,8 @@ const HeaderComponent = () => {
   return (
     <div>
       <TitleComponent />
+      {/* As jsxHeading is a normal JS object, we can import it in curly braces */}
+      {jsxHeading}
       <h1 id="heading">Hello from React Functional Component!</h1>
     </div>
   );
