@@ -17,8 +17,41 @@ const Header = () => {
         <ul>
           <li>Home</li>
           <li>About Us</li>
+          <li>Contact Us</li>
           <li>Cart</li>
         </ul>
+      </div>
+    </div>
+  );
+};
+
+// Restaurant Card Component
+
+const RestaurantCard = () => {
+  return (
+    <div className="res-card">
+      <img
+        className="res-logo"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/xleew4x48pi77pzsjyyz"
+        alt=""
+      />
+      <h3>Atharva Foods</h3>
+    </div>
+  );
+};
+
+// Body Component
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="res-container">
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
       </div>
     </div>
   );
@@ -31,6 +64,7 @@ const AppLayout = () => {
       {/* Header */}
       <Header />
       {/* Body */}
+      <Body />
       {/* Footer */}
     </div>
   );
