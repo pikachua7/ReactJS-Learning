@@ -1,7 +1,8 @@
 import { CDN_URL } from "../utils/constant";
 
 export const RestaurantCard = ({ resData }) => {
-  const { name, cuisines, cloudinaryImageId, locality } = resData.info;
+  const { name, cuisines, cloudinaryImageId, locality, avgRating } =
+    resData.info;
 
   return (
     <div className="res-card">
@@ -9,6 +10,7 @@ export const RestaurantCard = ({ resData }) => {
       <h3>{name}</h3>
       <h4>{locality}</h4>
       <h4>{cuisines.join(", ")}</h4>
+      <h4>{avgRating}</h4>
     </div>
   );
 };
