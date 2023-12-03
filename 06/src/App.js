@@ -12,7 +12,8 @@ const AppLayout = () => {
       {/* Header */}
       <Header />
       {/* Body */}
-      <Body />s{/* Footer */}
+      <Body />
+      {/* Footer */}
     </div>
   );
 };
