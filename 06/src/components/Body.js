@@ -26,29 +26,35 @@ export const Body = () => {
     );
   };
 
+  // Conditional Rendering
+
   if (listOfRestaurants.length === 0) {
     return <Shimmer />;
   }
 
-  return (
-    <div className="body">
-      <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            setListOfRestaurants(
-              listOfRestaurants.filter((res) => res.info.avgRating > 4)
-            );
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+  return listOfRestaurants ? (
+    <>
+      <div className="body">
+        <div className="filter">
+          <button
+            className="filter-btn"
+            onClick={() => {
+              setListOfRestaurants(
+                listOfRestaurants.filter((res) => res.info.avgRating > 4)
+              );
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
+        <div className="res-container">
+          {listOfRestaurants.map((restaurant) => (
+            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          ))}
+        </div>
       </div>
-      <div className="res-container">
-        {listOfRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-        ))}
-      </div>
-    </div>
+    </>
+  ) : (
+    <Shimmer />
   );
 };
