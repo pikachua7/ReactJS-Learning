@@ -9,12 +9,16 @@ export const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  console.log("Inside Component");
+
   //useEffect
   useEffect(() => {
+    console.log("Inside Effect");
     fetchData();
   }, []);
 
   const fetchData = async () => {
+    console.log("Inside Function");
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
@@ -22,23 +26,19 @@ export const Body = () => {
     const dataToJson = await data.json();
     // optional chaining
     setListOfRestaurants(
-      dataToJson?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+      dataToJson?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
 
     setFilteredRestaurants(
-      dataToJson?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+      dataToJson?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
 
   // Conditional Rendering
 
-  if (listOfRestaurants.length === 0) {
-    return <Shimmer />;
-  }
-
-  return listOfRestaurants ? (
+  return listOfRestaurants.length > 0 ? (
     <>
       <div className="body">
         {/* Search */}
@@ -53,10 +53,10 @@ export const Body = () => {
           />
           <button
             onClick={() => {
-              const filteredRestaurants = listOfRestaurants.filter((res) =>
+              const filteredRestaurantsList = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
-              setFilteredRestaurants(filteredRestaurants);
+              setFilteredRestaurants(filteredRestaurantsList);
             }}
           >
             Search
@@ -68,7 +68,7 @@ export const Body = () => {
           <button
             className="filter-btn"
             onClick={() => {
-              setListOfRestaurants(
+              setFilteredRestaurants(
                 listOfRestaurants.filter((res) => res.info.avgRating > 4)
               );
             }}
