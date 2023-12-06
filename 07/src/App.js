@@ -17,7 +17,7 @@ const AppLayout = () => {
     <div className="app">
       {/* Header */}
       <Header />
-      {/* Body */}
+      {/* Children */}
       <Outlet />
       {/* Footer */}
     </div>
