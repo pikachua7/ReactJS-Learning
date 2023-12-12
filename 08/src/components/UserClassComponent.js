@@ -7,9 +7,16 @@ export class UserClassComponent extends React.Component {
     this.state = {
       count: 0,
     };
+
+    console.log("Child Constructor");
+  }
+
+  componentDidMount() {
+    console.log("Inside Child Component Did Mount");
   }
 
   render() {
+    console.log("Child Render");
     const { name } = this.props;
     const { count } = this.state;
 
