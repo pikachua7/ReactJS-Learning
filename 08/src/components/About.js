@@ -4,8 +4,8 @@ import { UserClassComponent } from "./UserClassComponent";
 export const About = () => {
   return (
     <div>
-      <User />
-      <UserClassComponent />
+      <User name={"Atharva from Functional component"} />
+      <UserClassComponent name={"Atharva from Class component"} />
     </div>
   );
 };
