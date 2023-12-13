@@ -27,7 +27,8 @@ export class About extends React.Component {
     return (
       <div>
         {/* <User name={"Atharva from Functional component"} /> */}
-        <UserClassComponent name={"Atharva from Class component"} />
+        <UserClassComponent name={"Atharva"} />
+        <UserClassComponent name={"Atharva 2.0"} />
       </div>
     );
   }
