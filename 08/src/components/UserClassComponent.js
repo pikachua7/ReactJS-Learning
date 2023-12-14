@@ -25,7 +25,10 @@ export class UserClassComponent extends React.Component {
     });
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.count !== prevState.count) {
+      console.log("Do something!");
+    }
     console.log("Component Did Update");
   }
 
