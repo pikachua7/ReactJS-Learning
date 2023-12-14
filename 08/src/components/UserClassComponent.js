@@ -30,9 +30,14 @@ export class UserClassComponent extends React.Component {
       console.log("Do something!");
     }
     console.log("Component Did Update");
+
+    this.timer = setInterval(() => {
+      console.log("Inside setInterval ");
+    }, 1000);
   }
 
   componentWillUnmount() {
+    clearInterval(this.timer);
     console.log("Component UnMount");
   }
 
