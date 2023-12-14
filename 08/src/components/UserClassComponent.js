@@ -25,6 +25,14 @@ export class UserClassComponent extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    console.log("Component Did Update");
+  }
+
+  componentWillUnmount() {
+    console.log("Component UnMount");
+  }
+
   render() {
     // console.log(this.props.name + " " + "Child Render");
     const { name, avatar_url } = this.state.userInfo;
