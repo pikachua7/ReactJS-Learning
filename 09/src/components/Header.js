@@ -1,9 +1,12 @@
 import { IMG_URL } from "../utils/constant";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useOnlineStatus } from "../utils/useOnlineStatus";
 
 export const Header = () => {
   const [authTextBtn, setAuthTextBtn] = useState("Login");
+
+  const onlineStatus = useOnlineStatus();
 
   const handleAuthTextBtn = () => {
     authTextBtn === "Login"
@@ -18,6 +21,7 @@ export const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>Online status : {onlineStatus ? "✅" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
