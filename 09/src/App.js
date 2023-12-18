@@ -7,7 +7,7 @@ import { Body } from "./components/Body";
 
 // Routing Configuration
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { About } from "./components/About";
+// import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Error } from "./components/Error";
 import { RestaurantsMenu } from "./components/RestaurantsMenu";
@@ -15,6 +15,8 @@ import { Shimmer } from "./components/Shimmer";
 // import { Grocery } from "./components/Grocery";
 
 const Grocery = lazy(() => import("./components/Grocery"));
+
+const About = lazy(() => import("./components/About"));
 
 // Top Level Component
 const AppLayout = () => {
@@ -40,7 +42,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",

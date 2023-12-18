@@ -11,7 +11,7 @@ import { UserClassComponent } from "./UserClassComponent";
 //   );
 // };
 
-export class About extends React.Component {
+class About extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,3 +33,5 @@ export class About extends React.Component {
     );
   }
 }
+
+export default About;
