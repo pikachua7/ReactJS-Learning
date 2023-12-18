@@ -32,6 +32,9 @@ export const Header = () => {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li>
+            <Link to="/grocery">Grocery</Link>
+          </li>
+          <li>
             <Link to="/about">Cart</Link>
           </li>
           <button className="auth-btn" onClick={handleAuthTextBtn}>
