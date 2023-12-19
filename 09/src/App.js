@@ -6,12 +6,11 @@ import { Header } from "./components/Header";
 import { Body } from "./components/Body";
 
 // Routing Configuration
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 // import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Error } from "./components/Error";
 import { RestaurantsMenu } from "./components/RestaurantsMenu";
-import { Shimmer } from "./components/Shimmer";
 // import { Grocery } from "./components/Grocery";
 
 const Grocery = lazy(() => import("./components/Grocery"));
