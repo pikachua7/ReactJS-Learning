@@ -15,7 +15,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between shadow-lg">
       <div className="bg-pink-50">
         <img className="w-32" src={IMG_URL} alt="" />
       </div>
@@ -37,7 +37,7 @@ export const Header = () => {
           <li className="px-4">
             <Link to="/about">Cart</Link>
           </li>
-          <button className="auth-btn" onClick={handleAuthTextBtn}>
+          <button className="auth-btn px-4" onClick={handleAuthTextBtn}>
             {authTextBtn}
           </button>
         </ul>
