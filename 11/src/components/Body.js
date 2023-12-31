@@ -12,6 +12,8 @@ export const Body = () => {
     useRestaurantList();
   const onlineStatus = useOnlineStatus();
 
+  console.log(listOfRestaurants);
+
   return onlineStatus ? (
     listOfRestaurants.length > 0 ? (
       <>

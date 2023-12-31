@@ -15,12 +15,12 @@ export const useRestaurantList = () => {
     const dataToJson = await data.json();
 
     setListOfRestaurants(
-      dataToJson?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      dataToJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
 
     setFilteredRestaurants(
-      dataToJson?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      dataToJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
