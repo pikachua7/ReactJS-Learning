@@ -14,3 +14,19 @@ export const RestaurantCard = ({ resData }) => {
     </div>
   );
 };
+
+// withPromoted label is an HOF, it takes RestaurantCard component as an input
+// and it returns an enhanced component with label and RestaurantCard component
+
+export const withPromotedLabel = (RestaurantCard) => {
+  // function return statment which will return a component
+  return (props) => {
+    return (
+      <div>
+        <label>Promoted</label>
+        {/* pass all the props that it receives to RestaurantCard component */}
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
