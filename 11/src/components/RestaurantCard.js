@@ -23,7 +23,9 @@ export const withPromotedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
-        <label>Promoted</label>
+        <label className="absolute text-white bg-black rounded-lg m-2 p-2">
+          Promoted
+        </label>
         {/* pass all the props that it receives to RestaurantCard component */}
         <RestaurantCard {...props} />
       </div>

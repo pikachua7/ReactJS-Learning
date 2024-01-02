@@ -12,7 +12,7 @@ export const Body = () => {
     useRestaurantList();
   const onlineStatus = useOnlineStatus();
 
-  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+  const RestaurantCardVeg = withPromotedLabel(RestaurantCard);
 
   console.log(listOfRestaurants);
 
@@ -68,7 +68,7 @@ export const Body = () => {
                 to={"/restaurants/" + restaurant.info.id}
               >
                 {restaurant.info.promoted ? (
-                  <RestaurantCardPromoted resData={restaurant} />
+                  <RestaurantCardVeg resData={restaurant} />
                 ) : (
                   <RestaurantCard resData={restaurant} />
                 )}
