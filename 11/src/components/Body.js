@@ -1,6 +1,6 @@
 // Restaurant Card
 import { useState } from "react";
-import { RestaurantCard } from "./RestaurantCard";
+import { RestaurantCard, withPromotedLabel } from "./RestaurantCard";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 import { useOnlineStatus } from "../utils/useOnlineStatus";
@@ -11,6 +11,8 @@ export const Body = () => {
   const { listOfRestaurants, filteredRestaurants, setFilteredRestaurants } =
     useRestaurantList();
   const onlineStatus = useOnlineStatus();
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   console.log(listOfRestaurants);
 
@@ -65,7 +67,11 @@ export const Body = () => {
                 key={restaurant.info.id}
                 to={"/restaurants/" + restaurant.info.id}
               >
-                <RestaurantCard resData={restaurant} />
+                {restaurant.info.promoted ? (
+                  <RestaurantCardPromoted resData={restaurant} />
+                ) : (
+                  <RestaurantCard resData={restaurant} />
+                )}
               </Link>
             ))}
           </div>
