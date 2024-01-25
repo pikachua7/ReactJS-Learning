@@ -1,6 +1,7 @@
 import { Shimmer } from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { useRestaurantMenu } from "../utils/useRestaurantMenu";
+import { RestaurantCategory } from "./RestaurantCategory";
 
 export const RestaurantsMenu = () => {
   const { resId } = useParams();
@@ -33,7 +34,9 @@ export const RestaurantsMenu = () => {
           {cuisines.join(",")} - {costForTwoMessage}
         </p>
         {/* Categories- Accordians */}
-        {categories.map(() => {})}
+        {categories.map((category) => (
+          <RestaurantCategory category={category?.card?.card} />
+        ))}
       </div>
     </>
   );
