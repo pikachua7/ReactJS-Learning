@@ -35,7 +35,10 @@ export const RestaurantsMenu = () => {
         </p>
         {/* Categories- Accordians */}
         {categories.map((category) => (
-          <RestaurantCategory category={category?.card?.card} />
+          <RestaurantCategory
+            key={category?.card?.card?.title}
+            category={category?.card?.card}
+          />
         ))}
       </div>
     </>
