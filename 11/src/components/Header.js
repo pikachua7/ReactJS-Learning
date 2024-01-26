@@ -1,12 +1,15 @@
 import { IMG_URL } from "../utils/constant";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useOnlineStatus } from "../utils/useOnlineStatus";
+import { UserContext } from "../utils/UserContext";
 
 export const Header = () => {
   const [authTextBtn, setAuthTextBtn] = useState("Login");
 
   const onlineStatus = useOnlineStatus();
+
+  const { loggedInUser } = useContext(UserContext);
 
   const handleAuthTextBtn = () => {
     authTextBtn === "Login"
@@ -40,6 +43,7 @@ export const Header = () => {
           <button className="auth-btn px-4" onClick={handleAuthTextBtn}>
             {authTextBtn}
           </button>
+          <li className="px-4 font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>
