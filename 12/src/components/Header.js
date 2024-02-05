@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useOnlineStatus } from "../utils/useOnlineStatus";
 import { UserContext } from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
   const [authTextBtn, setAuthTextBtn] = useState("Login");
@@ -10,6 +11,9 @@ export const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const { loggedInUser } = useContext(UserContext);
+
+  // Subscribing to the store using selector
+  const cartItems = useSelector((store) => store.cart.items);
 
   const handleAuthTextBtn = () => {
     authTextBtn === "Login"
@@ -37,9 +41,7 @@ export const Header = () => {
           <li className="px-4">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-4">
-            <Link to="/about">Cart</Link>
-          </li>
+          <li className="px-4 font-bold">Cart ({cartItems.length} items)</li>
           <button className="auth-btn px-4" onClick={handleAuthTextBtn}>
             {authTextBtn}
           </button>
