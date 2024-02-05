@@ -14,6 +14,9 @@ import { RestaurantsMenu } from "./components/RestaurantsMenu";
 import { UserContext } from "./utils/UserContext";
 // import { Grocery } from "./components/Grocery";
 
+import { Provider } from "react-redux";
+import { appStore } from "./utils/appStore";
+
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const About = lazy(() => import("./components/About"));
@@ -30,15 +33,17 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="app">
-        {/* Header */}
-        <Header />
-        {/* Children */}
-        <Outlet />
-        {/* Footer */}
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          {/* Header */}
+          <Header />
+          {/* Children */}
+          <Outlet />
+          {/* Footer */}
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
