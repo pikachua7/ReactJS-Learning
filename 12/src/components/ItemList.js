@@ -1,7 +1,15 @@
+import { addItem } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constant";
+import { useDispatch } from "react-redux";
 
 export const ItemList = ({ items }) => {
-  console.log(items);
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    // whatever we pass inside addItem bracket is what action.payload
+    dispatch(addItem(item));
+  };
+
   return (
     <div>
       {items.map((item) => (
@@ -19,7 +27,10 @@ export const ItemList = ({ items }) => {
           {item.card.info.imageId && (
             <div className="w-3/12 p-4">
               <div className="absolute">
-                <button className="p-2 bg-white shadow-lg text-green-500 rounded-lg mx-2">
+                <button
+                  className="p-2 bg-white shadow-lg text-green-500 rounded-lg mx-2"
+                  onClick={() => handleAddItem(item)}
+                >
                   ADD +{" "}
                 </button>
               </div>
